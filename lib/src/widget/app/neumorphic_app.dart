@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/src/widget/app/page.dart';
+export 'package:flutter_neumorphic/src/widget/app/page.dart';
 
-import '../../flutter_neumorphic.dart';
+import '../../../flutter_neumorphic.dart';
 
 /// Fork of MaterialApp
 /// With NeumorphicThemes
@@ -422,7 +424,7 @@ class _MaterialAppState extends State<NeumorphicApp> {
       navigatorKey: widget.navigatorKey,
       navigatorObservers: _navigatorObservers,
       pageRouteBuilder: <T>(RouteSettings settings, WidgetBuilder builder) {
-        return MaterialPageRoute<T>(settings: settings, builder: builder);
+        return NeumorphicPageRoute<T>(settings: settings, builder: builder);
       },
       home: widget.home,
       routes: widget.routes,

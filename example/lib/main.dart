@@ -12,15 +12,14 @@ class MyApp extends StatelessWidget {
     return NeumorphicApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      color: Colors.blue,
-      //theme: NeumorphicThemeData(
-      //    //customize
-      //    baseColor: NeumorphicColors.background
-      //),
-      //darkTheme: NeumorphicThemeData.dark(
-      //    //customize
-      //    baseColor: NeumorphicColors.darkBackground
-      //),
+      theme: NeumorphicThemeData(
+          //customize
+          baseColor: NeumorphicColors.background
+      ),
+      darkTheme: NeumorphicThemeData.dark(
+          //customize
+          baseColor: NeumorphicColors.darkBackground
+      ),
       home: NeumorphicTheme(
           usedTheme: UsedTheme.LIGHT,
           theme: NeumorphicThemeData(
@@ -76,7 +75,7 @@ class MyHomePage extends StatelessWidget {
             NeumorphicButton(
                 margin: EdgeInsets.only(top: 12),
                 onClick: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
+                  Navigator.of(context).pushReplacement(NeumorphicPageRoute(builder: (context) {
                     return FullSampleHomePage();
                   }));
                 },

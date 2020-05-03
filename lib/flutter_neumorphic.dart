@@ -20,4 +20,4 @@ export 'src/widget/range_slider.dart';
 export 'src/widget/slider.dart';
 export 'src/widget/switch.dart';
 export 'src/widget/toggle.dart';
-export 'src/widget/neumorphic_app.dart';
+export 'src/widget/app/neumorphic_app.dart';

@@ -9,12 +9,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return NeumorphicApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      color: Colors.blue,
+      //theme: NeumorphicThemeData(
+      //    //customize
+      //    baseColor: NeumorphicColors.background
+      //),
+      //darkTheme: NeumorphicThemeData.dark(
+      //    //customize
+      //    baseColor: NeumorphicColors.darkBackground
+      //),
       home: NeumorphicTheme(
           usedTheme: UsedTheme.LIGHT,
           theme: NeumorphicThemeData(
@@ -38,9 +44,8 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key key}) : super(key: key);
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: NeumorphicTheme.baseColor(context),
-      body: Center(
+    return NeumorphicBackground(
+      child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

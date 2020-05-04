@@ -20,3 +20,4 @@ export 'src/widget/range_slider.dart';
 export 'src/widget/slider.dart';
 export 'src/widget/switch.dart';
 export 'src/widget/toggle.dart';
+export 'src/widget/text/text.dart';

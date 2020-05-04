@@ -6,8 +6,9 @@ import 'text_path_provider.dart';
 
 class NeumorphicText extends StatefulWidget {
   final String text;
+  final String ttf;
 
-  NeumorphicText(this.text);
+  NeumorphicText(this.text, {this.ttf});
 
   @override
   _NeumorphicTextState createState() => _NeumorphicTextState();
@@ -30,7 +31,7 @@ class _NeumorphicTextState extends State<NeumorphicText> {
   }
 
   void _update() async {
-    final List<Path> paths = await fontToPath.getPaths(font: "assets/sample_font.ttf", text: widget.text);
+    final List<Path> paths = await fontToPath.getPaths(font: widget.ttf, text: widget.text);
     setState(() {
       this.paths = paths;
     });

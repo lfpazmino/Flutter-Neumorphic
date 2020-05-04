@@ -19,7 +19,7 @@ class _Home extends State<Home> {
         home: Scaffold(
       backgroundColor: NeumorphicColors.background,
       body: Container(
-        child: Column(children: [NeumorphicText("flo")]),
+        child: Column(children: [NeumorphicText("wesh", ttf: "assets/sample_font.ttf",)]),
         padding: EdgeInsets.all(16),
       ),
       appBar: AppBar(title: Text("Example")),

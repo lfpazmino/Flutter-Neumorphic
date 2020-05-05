@@ -19,16 +19,16 @@ class TextPathProvider extends NeumorphicPathProvider {
     var transformMatrix = Matrix4.identity();
 
     //Translate to start at 0
-    path = path.clampTo0();
+    path = pathClampTo0(path);
 
     //Downscale
-    path = path.scaleToFit(size);
+    path = pathScaleToFit(path, size);
 
     //because reversed, need to add the size
-    path = path.reverseY();
+    path = pathReverseY(path);
 
     //now center
-    path = path.centerIn(size);
+    path = pathCenterIn(path, size);
 
     return path;
   }

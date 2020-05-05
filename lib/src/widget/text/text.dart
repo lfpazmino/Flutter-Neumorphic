@@ -45,10 +45,12 @@ class _NeumorphicTextState extends State<NeumorphicText> {
       return Row(
         children: paths.map((p) {
           return Neumorphic(
-            boxShape: NeumorphicBoxShape.path(TextPathProvider(p)),
+            boxShape: NeumorphicBoxShape.path(
+              TextPathProvider(p),
+            ),
             style: NeumorphicStyle(
               intensity: 0.7,
-              depth: -4.0,
+              depth: 5.0,
             ),
             child: SizedBox(
               height: 200,

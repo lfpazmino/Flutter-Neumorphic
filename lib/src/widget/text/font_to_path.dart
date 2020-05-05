@@ -8,13 +8,13 @@ class NeumorphicFontToPath {
 
   PMFont myFont;
 
-  void _load(String ttfName) async {
+  Future<void> _load(String ttfName) async {
     myFont = await FontProvider.getOrCreate(ttfName);
   }
 
   Future<List<Path>> getPaths({String font, String text}) async {
     if (myFont == null) {
-      _load(font);
+      await _load(font);
     }
     final List<Path> paths = [];
     for (var i = 0; i < text.length; ++i) {

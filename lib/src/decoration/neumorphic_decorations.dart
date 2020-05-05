@@ -13,10 +13,12 @@ class NeumorphicDecoration extends Decoration {
   final bool splitBackgroundForeground;
   final bool renderingByPath;
   final bool isForeground;
+  final bool drawOnlyLines;
 
   NeumorphicDecoration({
     @required this.style,
     @required this.isForeground,
+    @required this.drawOnlyLines,
     @required this.renderingByPath,
     @required this.splitBackgroundForeground,
     @required this.shape,
@@ -30,6 +32,7 @@ class NeumorphicDecoration extends Decoration {
         style: style,
         drawGradient: (isForeground && splitBackgroundForeground) || (!isForeground && !splitBackgroundForeground),
         drawBackground: !isForeground,
+        drawOnlyLines: drawOnlyLines,
         //only box draw background
         drawShadow: !isForeground,
         //only box draw shadow
@@ -66,6 +69,7 @@ class NeumorphicDecoration extends Decoration {
     print("scale");
     return NeumorphicDecoration(
         isForeground: this.isForeground,
+        drawOnlyLines: this.drawOnlyLines,
         renderingByPath: this.renderingByPath,
         splitBackgroundForeground: this.splitBackgroundForeground,
         shape: NeumorphicBoxShape.lerp(null, shape, factor),
@@ -96,6 +100,7 @@ class NeumorphicDecoration extends Decoration {
         isForeground: a.isForeground,
         shape: NeumorphicBoxShape.lerp(a.shape, b.shape, t),
         splitBackgroundForeground: a.splitBackgroundForeground,
+        drawOnlyLines: a.drawOnlyLines,
         renderingByPath: a.renderingByPath,
         style: a.style.copyWith(
           intensity: lerpDouble(aStyle.intensity, bStyle.intensity, t),
@@ -115,10 +120,11 @@ class NeumorphicDecoration extends Decoration {
           runtimeType == other.runtimeType &&
           style == other.style &&
           shape == other.shape &&
+          drawOnlyLines == other.drawOnlyLines &&
           splitBackgroundForeground == other.splitBackgroundForeground &&
           isForeground == other.isForeground &&
           renderingByPath == other.renderingByPath;
 
   @override
-  int get hashCode => style.hashCode ^ shape.hashCode ^ splitBackgroundForeground.hashCode ^ isForeground.hashCode ^ renderingByPath.hashCode;
+  int get hashCode => style.hashCode ^ shape.hashCode ^ splitBackgroundForeground.hashCode ^ drawOnlyLines.hashCode ^ isForeground.hashCode ^ renderingByPath.hashCode;
 }

@@ -58,6 +58,7 @@ class Neumorphic extends StatelessWidget {
   final Curve curve;
   final Duration duration;
   final bool drawSurfaceAboveChild; //if true => boxDecoration & foreground decoration, else => boxDecoration does all the work
+  final bool drawOnlyLines; //for text
 
   Neumorphic({
     Key key,
@@ -65,6 +66,7 @@ class Neumorphic extends StatelessWidget {
     this.duration = Neumorphic.DEFAULT_DURATION,
     this.curve = Neumorphic.DEFAULT_CURVE,
     this.style,
+    this.drawOnlyLines = false,
     this.boxShape,
     this.textStyle,
     this.margin = const EdgeInsets.all(0),
@@ -86,6 +88,7 @@ class Neumorphic extends StatelessWidget {
       duration: this.duration,
       style: style,
       curve: this.curve,
+      drawOnlyLines: this.drawOnlyLines,
       margin: this.margin,
       child: this.child,
     );
@@ -101,12 +104,14 @@ class _NeumorphicContainer extends StatelessWidget {
   final Duration duration;
   final Curve curve;
   final bool drawSurfaceAboveChild;
+  final bool drawOnlyLines;
   final EdgeInsets padding;
 
   _NeumorphicContainer({
     Key key,
     @required this.child,
     @required this.padding,
+    @required this.drawOnlyLines,
     @required this.margin,
     @required this.duration,
     @required this.curve,
@@ -133,6 +138,7 @@ class _NeumorphicContainer extends StatelessWidget {
         ),
         foregroundDecoration: NeumorphicDecoration(
           isForeground: true,
+          drawOnlyLines: this.drawOnlyLines,
           renderingByPath: this.boxShape.customShapePathProvider.oneGradientPerPath,
           splitBackgroundForeground: this.drawSurfaceAboveChild,
           style: this.style,
@@ -140,6 +146,7 @@ class _NeumorphicContainer extends StatelessWidget {
         ),
         decoration: NeumorphicDecoration(
           isForeground: false,
+          drawOnlyLines: this.drawOnlyLines,
           renderingByPath: this.boxShape.customShapePathProvider.oneGradientPerPath,
           splitBackgroundForeground: this.drawSurfaceAboveChild,
           style: this.style,

@@ -48,6 +48,7 @@ class _NeumorphicTextState extends State<NeumorphicText> {
             boxShape: NeumorphicBoxShape.path(
               TextPathProvider(p),
             ),
+            drawOnlyLines: true,
             style: NeumorphicStyle(
               intensity: 0.7,
               depth: 5.0,
